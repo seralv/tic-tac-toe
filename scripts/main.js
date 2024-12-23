@@ -4,19 +4,13 @@ const MakeBoard = (function () {
   function showBoard() {
     let counter = 0;
     for (let x = 0; x < 3; x++) {
-      let row = []; // Crear una variable para acumular los valores de la fila
+      let row = [];
 
-      // Recorremos las columnas
       for (let y = 0; y < 3; y++) {
-        row.push(board[counter]); // Agregar el valor de counter a la fila
+        row.push(board[counter]);
         counter++;
-
-        // Agregar un espacio si no es el último valor de la fila
-        // if (y < 2) {
-        //   row += " ";
-        // }
       }
-      console.log(row); // Imprimir la fila
+      console.log(row); // Print row
     }
   }
   return {
@@ -33,7 +27,6 @@ const MakeBoard = (function () {
     updateBoard: function (space, figure) {
       if (board[space] === " ") {
         board[space] = figure;
-        // console.log("currentPlayer:", currentPlayer);
         showBoard();
         this.verifyBoard();
         this.toggleTurn(players);
@@ -111,5 +104,4 @@ secondPlayer.turnGame(0);
 firstPlayer.turnGame(8);
 secondPlayer.turnGame(7)
 firstPlayer.turnGame(3);
-secondPlayer.turnGame(5)
-firstPlayer.turnGame(1);
+secondPlayer.turnGame(1)

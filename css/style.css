@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Galindo&display=swap');
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #fff;
+  .title {
+    font-family: "Galindo", serif;
+    text-align: center;
+    h1 {
+      font-size: 4em;
+      color: crimson;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+    .title {
+      font-size: 0.8em;
+    }
+  }
+}
