@@ -1,6 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Galindo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Galindo&display=swap");
 
-*, ::before, ::after {
+*,
+::before,
+::after {
   box-sizing: border-box;
 }
 
