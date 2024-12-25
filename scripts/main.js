@@ -15,10 +15,8 @@ const MakeBoard = (function () {
   }
   return {
     generate: function () {
-      // let counter = 0;
       for (let x = 0; x < 3; x++) {
         for (let y = 0; y < 3; y++) {
-          // board.push(counter++);
           board.push(" ");
         }
       }
@@ -43,17 +41,18 @@ const MakeBoard = (function () {
       });
     },
     verifyBoard: function () {
-      const checkLine = (line) => line.every(value => value !== " " && value === line[0]);
+      const checkLine = (line) =>
+        line.every((value) => value !== " " && value === line[0]);
 
       const lines = [
-        [board[0], board[1], board[2]],  // Line 1
-        [board[3], board[4], board[5]],  // Line 2
-        [board[6], board[7], board[8]],  // Line 3
-        [board[0], board[3], board[6]],  // Column 1
-        [board[1], board[4], board[7]],  // Column 2
-        [board[2], board[5], board[8]],  // Column 3
-        [board[0], board[4], board[8]],  // Diagonal 1
-        [board[6], board[4], board[2]],  // Diagonal 2
+        [board[0], board[1], board[2]], // Line 1
+        [board[3], board[4], board[5]], // Line 2
+        [board[6], board[7], board[8]], // Line 3
+        [board[0], board[3], board[6]], // Column 1
+        [board[1], board[4], board[7]], // Column 2
+        [board[2], board[5], board[8]], // Column 3
+        [board[0], board[4], board[8]], // Diagonal 1
+        [board[6], board[4], board[2]], // Diagonal 2
       ];
 
       const winner = lines.some(checkLine);
@@ -63,10 +62,10 @@ const MakeBoard = (function () {
         return;
       }
 
-      const isBoardFull = board.every(cell => cell !== " ")
+      const isBoardFull = board.every((cell) => cell !== " ");
 
       if (isBoardFull) {
-        console.log("IT'S A TIE!!!")
+        console.log("IT'S A TIE!!!");
       }
     },
   };
@@ -82,7 +81,7 @@ function createPlayer(playerName, figure, turn) {
     },
     turnGame: function (space) {
       if (this.turn) {
-        console.log(`${this.playerName}'s turn`)
+        console.log(`${this.playerName}'s turn`);
         MakeBoard.updateBoard(space, this.figure);
       } else {
         console.log(`${this.playerName}, it's not your turn!`);
@@ -102,6 +101,6 @@ secondPlayer.turnGame(4);
 firstPlayer.turnGame(6);
 secondPlayer.turnGame(0);
 firstPlayer.turnGame(8);
-secondPlayer.turnGame(7)
+secondPlayer.turnGame(7);
 firstPlayer.turnGame(3);
-secondPlayer.turnGame(1)
+secondPlayer.turnGame(1);

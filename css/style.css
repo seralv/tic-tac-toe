@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Galindo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 *,
 ::before,
@@ -12,18 +13,53 @@ html {
 
 body {
   margin: 0;
+  background-color: goldenrod;
 }
 
 .container {
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
   background-color: #fff;
+  text-align: center;
   .title {
     font-family: "Galindo", serif;
     text-align: center;
     h1 {
       font-size: 4em;
       color: crimson;
+    }
+  }
+  .players {
+    font-family: "Poppins", serif;
+    form {
+      /*background-color: greenyellow;*/
+      .row {
+        display: flex;
+        justify-content: center;
+        .col {
+          flex-direction: column;
+          /*margin: 0 50px;*/
+          label {
+            font-weight: 500;
+          }
+          input {
+            width: 100%;
+            font-size: 1.3em;
+            text-align: center;
+            margin-top: 7px;
+          }
+        }
+      }
+      button {
+        background-color: steelblue;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.3em;
+        margin: 10px;
+        padding: 10px 50px;
+        border: none;
+        border-radius: 50px;
+      }
     }
   }
 }
