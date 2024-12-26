@@ -1,6 +1,9 @@
-const MakeBoard = (function () {
+const MakeBoard = (function (players) {
   let board = [];
   let currentPlayer = null;
+  let displayBoard = document.getElementById("board");
+  let resetBtn = document.getElementById("reset-btn");
+  let spaceName = document.getElementById("namePlayer");
   function showBoard() {
     let counter = 0;
     for (let x = 0; x < 3; x++) {
@@ -15,6 +18,8 @@ const MakeBoard = (function () {
   }
   return {
     generate: function () {
+      displayBoard.style.display = "grid";
+      resetBtn.style.display = "inline";
       for (let x = 0; x < 3; x++) {
         for (let y = 0; y < 3; y++) {
           board.push(" ");
@@ -68,6 +73,17 @@ const MakeBoard = (function () {
         console.log("IT'S A TIE!!!");
       }
     },
+    verifyPlayers: function (nameFirstPlayer, nameSecondPlayer) {
+      if (nameFirstPlayer !== "" && nameSecondPlayer !== "") {
+        spaceName.textContent = `${nameFirstPlayer}'s turn`;
+        // const firstPlayer = createPlayer(nameFirstPlayer, "X", true);
+        // const secondPlayer = createPlayer(nameSecondPlayer, "O", false);
+        // const players = [firstPlayer, secondPlayer];
+        MakeBoard.generate();
+      } else {
+        spaceName.textContent = "We need both names of players";
+      }
+    },
   };
 })();
 
@@ -76,9 +92,6 @@ function createPlayer(playerName, figure, turn) {
     playerName: playerName,
     figure: figure,
     turn: turn,
-    greeting: function () {
-      console.log(`Hello I am ${this.playerName}`);
-    },
     turnGame: function (space) {
       if (this.turn) {
         console.log(`${this.playerName}'s turn`);
@@ -90,17 +103,29 @@ function createPlayer(playerName, figure, turn) {
   };
 }
 
-const firstPlayer = createPlayer("Sergio", "X", true);
-const secondPlayer = createPlayer("Luciana", "O", false);
+document.getElementById("start-btn").addEventListener("click", function () {
+  const nameFirstPlayer = document.getElementById("playerOne").value.trim();
+  const nameSecondPlayer = document.getElementById("playerTwo").value.trim();
+
+  const firstPlayer = createPlayer(nameFirstPlayer, "X", true);
+  const secondPlayer = createPlayer(nameSecondPlayer, "O", false);
+
+  MakeBoard.verifyPlayers(nameFirstPlayer, nameSecondPlayer);
+});
+
+function resetPage() {
+  location.reload();
+}
+document.getElementById("reset-btn").addEventListener("click", resetPage);
 
 const players = [firstPlayer, secondPlayer];
 
-MakeBoard.generate();
-firstPlayer.turnGame(2);
-secondPlayer.turnGame(4);
-firstPlayer.turnGame(6);
-secondPlayer.turnGame(0);
-firstPlayer.turnGame(8);
-secondPlayer.turnGame(7);
-firstPlayer.turnGame(3);
-secondPlayer.turnGame(1);
+// MakeBoard.generate();
+// firstPlayer.turnGame(2);
+// secondPlayer.turnGame(4);
+// firstPlayer.turnGame(6);
+// secondPlayer.turnGame(0);
+// firstPlayer.turnGame(8);
+// secondPlayer.turnGame(7);
+// firstPlayer.turnGame(3);
+// secondPlayer.turnGame(1);

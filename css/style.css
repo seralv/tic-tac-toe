@@ -22,7 +22,6 @@ html {
 
 body {
   margin: 0;
-  /*background-color: goldenrod;*/
 }
 
 .container {
@@ -41,11 +40,11 @@ body {
   .players {
     font-family: "Poppins", serif;
     form {
-      /*background-color: greenyellow;*/
       .row {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 5px;
         .col {
           width: 280px;
           margin: 10px;
@@ -62,16 +61,24 @@ body {
           }
         }
       }
+      div {
+        margin: 20px;
+        #namePlayer {
+          font-family: "Galindo", serif;
+          font-size: 2em;
+          color: var(--cerulean);
+        }
+      }
     }
   }
   .board {
     background-image: url("/images/square.png");
     background-size: cover;
-    display: grid;
+    display: none;
     grid-template-columns: 1fr 1fr 1fr;
     width: 330px;
     height: 330px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     div {
       font-family: "Slackey", serif;
       font-size: 5em;
@@ -89,6 +96,10 @@ button {
   padding: 10px 50px;
   border: none;
   border-radius: 50px;
+}
+
+#reset-btn {
+  display: none;
 }
 
 @media screen and (max-width: 650px) {

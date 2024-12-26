@@ -13,13 +13,14 @@
         <h1>TIC•TAC•TOE</h1>
       </div>
       <div class="players">
-        <form>
+        <form id="gameBoard">
           <div class="row">
             <div class="col">
               <label for="playerOne">First player</label>
               <input
                 type="text"
                 name="playerOne"
+                id="playerOne"
                 value=""
                 placeholder="First player name"
               />
@@ -29,26 +30,30 @@
               <input
                 type="text"
                 name="playerTwo"
+                id="playerTwo"
                 value=""
                 placeholder="Second player name"
               />
             </div>
           </div>
-          <button type="button">START</button>
+          <button type="button" id="start-btn">START</button><br />
+          <div>
+            <p id="namePlayer"></p>
+          </div>
         </form>
       </div>
-      <div class="board">
-        <div>X</div>
-        <div>O</div>
-        <div>O</div>
-        <div>X</div>
-        <div>O</div>
-        <div>O</div>
-        <div>X</div>
-        <div>O</div>
-        <div>X</div>
+      <div class="board" id="board">
+        <div id="space0"></div>
+        <div id="space1"></div>
+        <div id="space2"></div>
+        <div id="space3"></div>
+        <div id="space4"></div>
+        <div id="space5"></div>
+        <div id="space6"></div>
+        <div id="space7"></div>
+        <div id="space8"></div>
       </div>
-      <button type="button">RESET</button>
+      <button type="button" id="reset-btn">RESET</button>
     </div>
     <script src="scripts/main.js"></script>
   </body>
