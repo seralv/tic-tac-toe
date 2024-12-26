@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Galindo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+* {
+  --royal-blue-traditional: #01295fff;
+  --cerulean: #437f97ff;
+  --olive: #849324ff;
+  --selective-yellow: #ffb30fff;
+  --red: #fd151bff;
+}
+
 *,
 ::before,
 ::after {
@@ -13,7 +21,7 @@ html {
 
 body {
   margin: 0;
-  background-color: goldenrod;
+  /*background-color: goldenrod;*/
 }
 
 .container {
@@ -26,7 +34,7 @@ body {
     text-align: center;
     h1 {
       font-size: 4em;
-      color: crimson;
+      color: var(--red);
     }
   }
   .players {
@@ -36,23 +44,25 @@ body {
       .row {
         display: flex;
         justify-content: center;
+        align-items: center;
         .col {
-          flex-direction: column;
-          /*margin: 0 50px;*/
+          width: 280px;
+          margin: 10px;
           label {
-            font-weight: 500;
+            font-weight: 600;
+            color: var(--royal-blue-traditional);
           }
           input {
             width: 100%;
-            font-size: 1.3em;
+            font-size: 1.1em;
+            font-weight: 300;
             text-align: center;
             margin-top: 7px;
           }
         }
       }
       button {
-        background-color: steelblue;
-        color: #fff;
+        background-color: var(--selective-yellow);
         font-weight: 700;
         font-size: 1.3em;
         margin: 10px;
@@ -64,11 +74,18 @@ body {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
   .container {
     width: 100%;
     .title {
-      font-size: 0.8em;
+      font-size: 0.75em;
+    }
+    .players {
+      form {
+        .row {
+          flex-direction: column;
+        }
+      }
     }
   }
 }
