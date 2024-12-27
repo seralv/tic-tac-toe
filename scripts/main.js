@@ -76,7 +76,7 @@ const MakeBoard = (function () {
     },
     verifyPlayers: function (nameFirstPlayer, nameSecondPlayer) {
       if (nameFirstPlayer !== "" && nameSecondPlayer !== "") {
-        spaceName.textContent = `${nameFirstPlayer}'s turn`;
+        // spaceName.textContent = `${nameFirstPlayer}'s turn`;
         const firstPlayer = createPlayer(nameFirstPlayer, "X", true);
         const secondPlayer = createPlayer(nameSecondPlayer, "O", false);
         players.push(firstPlayer, secondPlayer);
@@ -88,10 +88,19 @@ const MakeBoard = (function () {
     playGame: function (space) {
       players.forEach((player) => {
         if (player.turn) {
-          // currentPlayer = player;
-          player.turnGame(space);
+          currentPlayer = player;
+          MakeBoard.turnGame(space);
         }
       });
+    },
+    turnGame: function (space) {
+      console.log("currentPlayer.turn:", currentPlayer.turn);
+      if (currentPlayer.turn) {
+        console.log(`${currentPlayer.playerName}'s turn`);
+        MakeBoard.updateBoard(space, currentPlayer.figure);
+      } else {
+        console.log(`${playerName}, it's not your turn!`);
+      }
     },
   };
 })();
@@ -101,14 +110,14 @@ function createPlayer(playerName, figure, turn) {
     playerName: playerName,
     figure: figure,
     turn: turn,
-    turnGame: function (space) {
-      if (this.turn) {
-        console.log(`${this.playerName}'s turn`);
-        MakeBoard.updateBoard(space, this.figure);
-      } else {
-        console.log(`${this.playerName}, it's not your turn!`);
-      }
-    },
+    // turnGame: function (space) {
+    //   if (this.turn) {
+    //     console.log(`${this.playerName}'s turn`);
+    //     MakeBoard.updateBoard(space, this.figure);
+    //   } else {
+    //     console.log(`${this.playerName}, it's not your turn!`);
+    //   }
+    // },
   };
 }
 
@@ -121,6 +130,7 @@ document.getElementById("start-btn").addEventListener("click", function () {
 const space0 = document.getElementById("space0");
 space0.addEventListener("click", function () {
   MakeBoard.playGame(0);
+  space0.textContent = "X";
 });
 
 function resetPage() {
