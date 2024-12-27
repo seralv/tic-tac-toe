@@ -33,12 +33,12 @@ const MakeBoard = (function () {
         board[space] = figure;
         showBoard();
         this.verifyBoard();
-        this.toggleTurn(players);
+        this.toggleTurn();
       } else {
         console.log("The space is full, change your option");
       }
     },
-    toggleTurn: function (players) {
+    toggleTurn: function () {
       players.forEach((player) => {
         player.turn = !player.turn;
         if (player.turn) {
@@ -94,7 +94,6 @@ const MakeBoard = (function () {
       });
     },
     turnGame: function (space) {
-      console.log("currentPlayer.turn:", currentPlayer.turn);
       if (currentPlayer.turn) {
         console.log(`${currentPlayer.playerName}'s turn`);
         MakeBoard.updateBoard(space, currentPlayer.figure);

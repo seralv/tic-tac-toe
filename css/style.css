@@ -80,6 +80,7 @@ body {
     height: 330px;
     margin: 0 auto 20px;
     div {
+      color: var(--royal-blue-traditional);
       font-family: "Slackey", serif;
       font-size: 5em;
       align-content: center;
