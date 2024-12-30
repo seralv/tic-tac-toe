@@ -9,7 +9,6 @@ const MakeBoard = (function () {
     let counter = 0;
     for (let x = 0; x < 3; x++) {
       let row = [];
-
       for (let y = 0; y < 3; y++) {
         row.push(board[counter]);
         counter++;
@@ -80,6 +79,8 @@ const MakeBoard = (function () {
         const firstPlayer = createPlayer(nameFirstPlayer, "X", true);
         const secondPlayer = createPlayer(nameSecondPlayer, "O", false);
         players.push(firstPlayer, secondPlayer);
+        currentPlayer = firstPlayer;
+        spaceName.textContent = `${currentPlayer.playerName}'s turn`;
         MakeBoard.generate();
       } else {
         spaceName.textContent = "We need both names of players";
@@ -88,7 +89,7 @@ const MakeBoard = (function () {
     playGame: function (space) {
       players.forEach((player) => {
         if (player.turn) {
-          currentPlayer = player;
+          // currentPlayer = player;
           MakeBoard.turnGame(space);
         }
       });
