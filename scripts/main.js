@@ -40,10 +40,9 @@ const MakeBoard = (function () {
     toggleTurn: function () {
       players.forEach((player) => {
         player.turn = !player.turn;
-        if (player.turn) {
-          currentPlayer = player;
-        }
       });
+      currentPlayer = players.find((player) => player.turn);
+      console.log("currentPlayer:", currentPlayer);
     },
     verifyBoard: function () {
       const checkLine = (line) =>
@@ -99,7 +98,7 @@ const MakeBoard = (function () {
         console.log(`${currentPlayer.playerName}'s turn`);
         MakeBoard.updateBoard(space, currentPlayer.figure);
       } else {
-        console.log(`${playerName}, it's not your turn!`);
+        console.log(`${currentPlayer.playerName}, it's not your turn!`);
       }
     },
   };
@@ -130,7 +129,11 @@ document.getElementById("start-btn").addEventListener("click", function () {
 const space0 = document.getElementById("space0");
 space0.addEventListener("click", function () {
   MakeBoard.playGame(0);
-  space0.textContent = "X";
+});
+
+const space1 = document.getElementById("space1");
+space1.addEventListener("click", function () {
+  MakeBoard.playGame(1);
 });
 
 function resetPage() {
