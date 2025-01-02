@@ -17,16 +17,18 @@ To get started with the project, follow these simple steps:
 
 1. Clone the repository to your local machine:
 
-   ````bash
-   git clone git@github.com:seralv/tic-tac-toe.git ```
+   ```bash
+   git clone git@github.com:seralv/tic-tac-toe.git
 
-   ````
+   ```
 
 2. Clone the repository to your local machine:
 
-   ````bash
-   cd tic-tac-toe ```
+   ```bash
+   cd tic-tac-toe
 
-   ````
+   ```
 
 3. Launch the index.html file in your browser to play the graphical version, and open the browser console(optional).
+
+**[Click here to check out the live demo! 🚀](https://seralv.github.io/tic-tac-toe/)**
