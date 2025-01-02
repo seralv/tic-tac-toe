@@ -28,8 +28,11 @@ const MakeBoard = (function () {
       showBoard();
     },
     updateBoard: function (space, figure) {
+      const currentSpace = document.getElementById(`space${space}`);
+      console.log("space:", `space${space}`);
       if (board[space] === " ") {
         board[space] = figure;
+        currentSpace.textContent = figure;
         showBoard();
         this.verifyBoard();
         this.toggleTurn();
@@ -42,7 +45,7 @@ const MakeBoard = (function () {
         player.turn = !player.turn;
       });
       currentPlayer = players.find((player) => player.turn);
-      console.log("currentPlayer:", currentPlayer);
+      spaceName.textContent = `${currentPlayer.playerName}'s turn`;
     },
     verifyBoard: function () {
       const checkLine = (line) =>
@@ -63,6 +66,9 @@ const MakeBoard = (function () {
 
       if (winner) {
         console.log(`${currentPlayer.playerName.toUpperCase()} WINS THE GAME`);
+        spaceName.style.color = "#fd151b";
+        spaceName.textContent = `${currentPlayer.playerName.toUpperCase()} WINS THE GAME`;
+        displayBoard.style.pointerEvents = "none";
         return;
       }
 
@@ -70,6 +76,8 @@ const MakeBoard = (function () {
 
       if (isBoardFull) {
         console.log("IT'S A TIE!!!");
+        spaceName.style.color = "#fd151b";
+        spaceName.textContent = "IT'S A TIE";
       }
     },
     verifyPlayers: function (nameFirstPlayer, nameSecondPlayer) {
@@ -86,20 +94,7 @@ const MakeBoard = (function () {
       }
     },
     playGame: function (space) {
-      players.forEach((player) => {
-        if (player.turn) {
-          // currentPlayer = player;
-          MakeBoard.turnGame(space);
-        }
-      });
-    },
-    turnGame: function (space) {
-      if (currentPlayer.turn) {
-        console.log(`${currentPlayer.playerName}'s turn`);
-        MakeBoard.updateBoard(space, currentPlayer.figure);
-      } else {
-        console.log(`${currentPlayer.playerName}, it's not your turn!`);
-      }
+      MakeBoard.updateBoard(space, currentPlayer.figure);
     },
   };
 })();
@@ -109,14 +104,6 @@ function createPlayer(playerName, figure, turn) {
     playerName: playerName,
     figure: figure,
     turn: turn,
-    // turnGame: function (space) {
-    //   if (this.turn) {
-    //     console.log(`${this.playerName}'s turn`);
-    //     MakeBoard.updateBoard(space, this.figure);
-    //   } else {
-    //     console.log(`${this.playerName}, it's not your turn!`);
-    //   }
-    // },
   };
 }
 
@@ -136,17 +123,42 @@ space1.addEventListener("click", function () {
   MakeBoard.playGame(1);
 });
 
+const space2 = document.getElementById("space2");
+space2.addEventListener("click", function () {
+  MakeBoard.playGame(2);
+});
+
+const space3 = document.getElementById("space3");
+space3.addEventListener("click", function () {
+  MakeBoard.playGame(3);
+});
+
+const space4 = document.getElementById("space4");
+space4.addEventListener("click", function () {
+  MakeBoard.playGame(4);
+});
+
+const space5 = document.getElementById("space5");
+space5.addEventListener("click", function () {
+  MakeBoard.playGame(5);
+});
+
+const space6 = document.getElementById("space6");
+space6.addEventListener("click", function () {
+  MakeBoard.playGame(6);
+});
+
+const space7 = document.getElementById("space7");
+space7.addEventListener("click", function () {
+  MakeBoard.playGame(7);
+});
+
+const space8 = document.getElementById("space8");
+space8.addEventListener("click", function () {
+  MakeBoard.playGame(8);
+});
+
 function resetPage() {
   location.reload();
 }
 document.getElementById("reset-btn").addEventListener("click", resetPage);
-
-// MakeBoard.generate();
-// firstPlayer.turnGame(2);
-// secondPlayer.turnGame(4);
-// firstPlayer.turnGame(6);
-// secondPlayer.turnGame(0);
-// firstPlayer.turnGame(8);
-// secondPlayer.turnGame(7);
-// firstPlayer.turnGame(3);
-// secondPlayer.turnGame(1);

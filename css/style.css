@@ -3,11 +3,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Slackey&display=swap");
 
 * {
-  --royal-blue-traditional: #01295fff;
-  --cerulean: #437f97ff;
-  --olive: #849324ff;
-  --selective-yellow: #ffb30fff;
-  --red: #fd151bff;
+  --royal-blue-traditional: #01295f;
+  --cerulean: #437f97;
+  --olive: #849324;
+  --selective-yellow: #ffb30f;
+  --red: #fd151b;
 }
 
 *,
