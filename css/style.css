@@ -72,7 +72,7 @@ body {
     }
   }
   .board {
-    background-image: url("./images/square.png");
+    background-image: url("../images/square.png");
     background-size: cover;
     display: none;
     grid-template-columns: 1fr 1fr 1fr;
